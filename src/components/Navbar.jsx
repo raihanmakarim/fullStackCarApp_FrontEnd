@@ -10,8 +10,8 @@ const navLinks = [
     display: "Home",
   },
   {
-    path: "/about",
-    display: "About",
+    path: "/login",
+    display: "Login",
   },
   {
     path: "/cars",

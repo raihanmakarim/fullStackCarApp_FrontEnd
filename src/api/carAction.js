@@ -1,5 +1,5 @@
 import { API } from "../config/api";
-
+import { setupAuthInterceptor } from "../config/api";
 export const getCars = async (page, pageSize, search, minPrice, maxPrice) => {
   try {
     const response = await API.get("/cars", {

@@ -13,8 +13,23 @@
 
 :root {
   --primary: #ffffff;
-  --secondary: #0b131d;
+  --secondary: #152438;
   --tertiary: #f9a826;
+  --black: #1a1c20;
+  --white: #fff;
+  --green: #00c380;
+  --d-green: #019b66;
+  --gray: #c1c1c1;
+  --l-gray: #c4c4c4;
+  --m-gray: #373838;
+  --d-gray: #282724;
+  --d-blue: #202428;
+  --orange: #ef6206;
+  --yellow: #dfa500;
+  --l-yellow: #deb953;
+  --light: #fbfbfb;
+  --n-road: -4em;
+  --p-road: 7em;
 }
 
 /* @media (prefers-color-scheme: dark) {
