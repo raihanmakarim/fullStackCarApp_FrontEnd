@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+:root {
+  --primary: #ffffff;
+  --secondary: #0b131d;
+  --tertiary: #f9a826;
+}
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --primary: #0b131d;
+    --secondary: #ffffff;
+    --tertiary: #884242;
+  }
+} */
