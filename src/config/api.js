@@ -7,6 +7,8 @@ export const URL = "http://localhost:3001/";
 
 export const getToken = () => localStorage.getItem("token");
 
+export const getUserId = () => localStorage.getItem("user_id");
+
 export const setToken = (token) => localStorage.setItem("token", token);
 
 export const clearToken = () => localStorage.removeItem("token");
@@ -19,7 +21,7 @@ export const setupAuthInterceptor = async () => {
   const refreshToken = async () => {
     try {
       const res = await API.get("/refresh_token");
-      const newToken = res.data.access_token;
+      const newToken = res.data.accessToken;
       setToken(newToken);
       return newToken;
     } catch (error) {

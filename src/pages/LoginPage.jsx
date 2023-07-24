@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/background-car.css";
 import { setToken, API } from "../config/api";
+import jwt_decode from "jwt-decode";
 
 
 
@@ -42,7 +43,13 @@ const LoginPage = () => {
   const login = async (params) => {
     try {
       const res = await API.post("/users/login", params);
-      setToken(res.data.accessToken);
+      const token = res.data.accessToken;
+      setToken(token);
+      const decoded = jwt_decode(token);
+      console.log(decoded);
+
+      const user_id = decoded.userId;
+      localStorage.setItem("user_id", user_id);
       return res;
     } catch (error) {
       console.log(error);
