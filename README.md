@@ -20,13 +20,8 @@ To get started with the frontend of the Full Stack Car App, follow these steps:
 git clone https://github.com/raihanmakarim/fullstackcarapp-frontend.git
 \`\`\`
 
-2. Navigate to the frontend directory.
 
-\`\`\`bash
-cd fullstackcarapp-frontend
-\`\`\`
-
-3. Install the required dependencies.
+2. Install the required dependencies.
 
 \`\`\`bash
 npm install
