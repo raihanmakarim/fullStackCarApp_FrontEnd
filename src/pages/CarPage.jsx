@@ -36,8 +36,8 @@ const CarPage = () => {
     if (currentMessage !== "") {
       const messageData = {
         room: id,
-        author: userId,
-        user_id: userId,
+        author: userId ,
+        user_id: userId ,
         message: currentMessage,
         time:
           new Date(Date.now()).getHours() +
@@ -80,13 +80,17 @@ const CarPage = () => {
         <h1 className='text-9xl' style={{ color: "var(--tertiary)" }} >{car.car_name}</h1>
       </div>
 
-      <HeroModal top="475px">
-        <h1 className='mt-14'>{car.car_name}asdasdsa</h1>
-
+     
+      <HeroModal>
+        <p className="text-gray-600 text-sm mb-2">Address: {car.address}</p>
+        <p className="text-gray-600 text-sm mb-2">Mileage: {car.mileage}</p>
+        <p className="text-gray-600 text-sm mb-2">Price: {car.price}</p>
+        <p className="text-gray-600 text-sm mb-2">Description: {car.description}</p>
+        <p className="text-gray-600 text-sm">Promotion End Date: {car.promotion_end_date}</p>
       </HeroModal>
 
-      <div className="max-w-5xl  mx-auto mt-24 px-6">
-        <div className="flex flex-col items-center gap-3 mb-4 bg-amber-400 px-8 py-4 rounded-md">
+      <div className="max-w-5xl  mx-auto mt-36 px-6">
+        <div className="flex flex-col items-center gap-3 mb-4 bg-blue-950 px-8 py-4 rounded-md">
           <textarea
             className="resize-none flex-1 border rounded-md p-2 mr-2 w-full"
             value={currentMessage}
@@ -97,7 +101,7 @@ const CarPage = () => {
           />
           <div className="w-full flex justify-end">
             <button
-              className="flex-shrink-0 border rounded-md px-4 py-2 bg-blue-600 text-white font-semibold"
+              className="flex-shrink-0  px-14 rounded-md py-2 bg-orange-500 text-white font-semibold"
               onClick={sendMessage}
             >
               &#9658;
@@ -108,7 +112,7 @@ const CarPage = () => {
           {messageList?.map((messageContent) => (
             <div className="overflow-x-clip flex flex-col h-max px-4 items-start mb-4 bg-gray-100 rounded-lg w-full" key={messageContent.id}>
               <div className="px-4 py-2 w-full">
-                {messageContent.author.charAt(0).toUpperCase()}
+                {messageContent.author}
                 <p className="text-gray-800 whitespace-normal">
                   {messageContent?.message}
                 </p>

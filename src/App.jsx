@@ -6,8 +6,10 @@ import Home from "./pages/home";
 import Navbar from "./components/Navbar";
 import LoginPage from "./pages/LoginPage";
 import CarPage from "./pages/CarPage";
-
+import UserCar from "./pages/userCar";
 function App() {
+  const checkIsLogin = !!localStorage.getItem("token");
+
   return (
     <Router>
       <Navbar />
@@ -15,6 +17,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/car/:id" element={<CarPage />} />
+        { checkIsLogin && <Route path="/user/car/:id" element={<UserCar />} /> }
+
 
 
         {/* <PrivateRoute

@@ -2,14 +2,12 @@ import React,{ useState,useEffect } from "react";
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
 import HeroSlider from "../components/HeroSlider";
-import { getCars } from "../api/carAction";
+import { getCars,getPromoCars } from "../api/carAction";
 import CarCard from "../components/CarCard";
-// import {
-//   Container, Row, Col 
-// } from "reactstrap";
 
 const Home = () => {
   const [ cars, setCars ] = useState([]);
+  const [ promoCars, setPromoCars ] = useState([]);
   const [ searchValues, setSearchValues ] = useState({
     page: 1,
     pageSize: 10,
@@ -29,6 +27,15 @@ const Home = () => {
 
       const data = await getCars(page, pageSize, search, minPrice, maxPrice);
       setCars(data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const fetchPromoCars = async () => {
+    try {
+      const data = await getPromoCars();
+      setPromoCars(data);
     } catch (error) {
       console.error(error);
     }
@@ -59,6 +66,7 @@ const Home = () => {
 
   useEffect(() => {
     fetchCars();
+    fetchPromoCars();
   }, [ ]);
 
   const handleSearch = async () => {
@@ -81,7 +89,7 @@ const Home = () => {
   return(
     <div className="-mt-8 mb-24">
 
-      <HeroSlider />
+      <HeroSlider cars={promoCars}/>
       <div className=' px-16 py-8 h-max w-1/2 m-auto shadow-md bg-white my-8'>
 
         <div className="bg-secondary rounded p-4">

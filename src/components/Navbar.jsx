@@ -3,7 +3,6 @@ import React, { useRef } from "react";
 import { Container, } from "reactstrap";
 import { NavLink } from "react-router-dom";
 import "../styles/Navbar.css";
-
 const navLinks = [
   {
     path: "/",
@@ -13,25 +12,16 @@ const navLinks = [
     path: "/login",
     display: "Login",
   },
-  {
-    path: "/cars",
-    display: "Cars",
-  },
-
-  {
-    path: "/blogs",
-    display: "Blog",
-  },
-  {
-    path: "/contact",
-    display: "Contact",
-  },
+  
 ];
+
+const checkIsLogin = !!localStorage.getItem("token");
+
 
 const Navbar = () => {
   const menuRef = useRef(null);
-
   const toggleMenu = () => menuRef.current.classList.toggle("menu__active");
+  const userId = localStorage.getItem("user_id");
 
   return (
     <header className="header">
@@ -57,6 +47,15 @@ const Navbar = () => {
                     {item.display}
                   </NavLink>
                 ))}
+                {checkIsLogin && <NavLink
+                  to={`/user/car/${userId}`}
+                  className={(navClass) =>
+                    navClass.isActive ? "nav__active nav__item" : "nav__item"
+                  }
+                  key="Your Cars"
+                >
+                  Your Cars
+                </NavLink>}
               </div>
             </div>
 

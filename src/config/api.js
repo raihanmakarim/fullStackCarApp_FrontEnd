@@ -1,8 +1,6 @@
 import axios from "axios";
-import process from "process";
 import jwt_decode from "jwt-decode";
 
-// export const URL = process.env.REACT_APP_BASE_BACKEND_URL;
 export const URL = "http://localhost:3001/";
 
 export const getToken = () => localStorage.getItem("token");
